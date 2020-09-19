@@ -28,7 +28,7 @@ class Posts
     private $likes;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable= true)
      */
     private $foto;
 
@@ -52,6 +52,20 @@ class Posts
      */
     private $user;
 
+    public function __construct()
+    {
+        $this->likes='';
+        $this->fecha_publicacion = new \DateTime();
+
+    }
+    public function getUser()
+    {
+        return $this->user;
+    }
+    public function setUser($user):void
+    {
+        $this->user = $user;
+    }
     public function getId(): ?int
     {
         return $this->id;
