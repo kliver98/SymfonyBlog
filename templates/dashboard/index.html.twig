@@ -28,14 +28,21 @@
             <div class="col-md-4">
                 <div class="bg-white rounded p-3 my-3">
                     <h4>Comentarios</h4>
+                      {% for comentario in comentarios %}
+                        <div class="bg-white my-2">
+                            <a href="{{ path('verPost',{id:comentario.id}) }}">{{ comentario.titulo }}</a>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </div>
     
-{# display navigation #}
-<div class="navigation">
-    {{ knp_pagination_render(pagination) }}
-</div>
+
+<div class="d-flex justify-content-center">
+        <div class="navigation">
+            {{ knp_pagination_render(pagination) }}
+        </div>
+    </div>
 </div>
 {% endblock %}

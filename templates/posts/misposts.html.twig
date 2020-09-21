@@ -2,6 +2,32 @@
 
 {% block body %}
 {{parent()}}
-{{dump(posts)}}
+
+ <div class="container mt-4"> 
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 cursor">
+            {% for post in posts %}
+                <div class="bg-white rounded p-3 my-3"  onclick="window.location.href='{{path('verPost',{id:post.id})}}'">
+                    <div class="d-flex bd-highlight">
+                        <div class="p-2 flex-grow-1 bd-highlight">
+                            <h3>{{post.titulo}}</h3>
+                            <div class="my-3 bg-yellow"> <i class="fa fa-user"></i><strong> Creado por {{post.getUser().getNombre()}}</strong></div>
+                            <div class=" bg-green"><i class="far fa-clock"></i> <strong>Fecha de publicación: {{post.getFechaPublicacion() | date}}</strong></div>
+                        </div>
+                        <div class="p-2 bd-highlight">
+                            <div class="align-self-center">
+                                <img class="rounded" src={{asset ('uploads/photos/'~post.foto)}} width="150px">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+    </div>
+   
+</div>
 
 {% endblock %}

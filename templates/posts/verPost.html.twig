@@ -25,5 +25,21 @@
             {{post.contenido}}
 
         </div>
+        <hr>
+        <div class="container p-3">
+        {{ form(form) }}
+        <h3>Comentarios</h3>
+        {% for comentario in comentarios %}
+            <div class="rounded bg-white my-2 p-3 border">
+                <h5>{{ comentario.nombre }} Dijo:</h5>
+                <div class="w-100">{{ comentario.comentario }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+         
+        
+
+
     </div>
 {% endblock %}

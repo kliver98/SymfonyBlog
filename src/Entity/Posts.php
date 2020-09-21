@@ -130,4 +130,19 @@ class Posts
 
         return $this;
     }
+    public function getComentarios()
+    {
+        return $this->comentarios;
+    }
+
+    /**
+     * @param mixed $comentarios
+     */
+    public function setComentarios($comentarios): void
+    {
+        $this->comentarios = $comentarios;
+    }
+
+   
+
 }
